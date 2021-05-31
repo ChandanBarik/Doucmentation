@@ -1,0 +1,13 @@
+What is Data Science ?
+
+- Extract useful info out of large unstructured data
+- Collecting
+- Visualising
+- Anyalysing
+- predicting model
+
+
+Tech
+- Python
+- TensorFlow
+
