@@ -1,0 +1,37 @@
+https://github.com/ChandanBarik/MicroServicesInSpringBoot
+
+
+Client Discovery :
+
+1. We will have Eureka Discovery 
+2. We will have several Microservices which will be the clients to the Eureka and they will get discovered by it.
+
+
+3. Having multiple instances of the same microservices, will have a different address and the request from a client app
+needs to be balanced between these instances.
+4. Spring Cloud API Gateway will act as the load balancer
+5. Logging, validations, routing could be part of Spring Cloud API Gateway.
+6. Additional filters could be added.
+
+
+Spring Cloud API Gateway :
+
+1. It works with reactive applications and hence needs webflux.
+
+Accessing a api through api gateway:
+
+http://localhost:<port - APIGateway>/<InstanceNameOfServiceInEurekaDashboard>/<API_PATH>
+
+
+Manual API Gateway Routes :
+
+spring.cloud.gateway.routes[0].id=<ID>
+spring.cloud.gateway.routes[0].uri=lb://<ServiceName>
+#lb means loadbalancer 
+spring.cloud.gateway.routes[0].predicates[0]=Path=<API Path>
+spring.cloud.gateway.routes[0].predicates[1]=Method=GET
+spring.cloud.gateway.routes[0].filters[0]=RemoveRequestHeader=Cookie
+
+Now, you can access through 
+
+http://localhost:<port - API Gatway>/<API_PATH>
